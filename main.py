@@ -3,7 +3,18 @@ from scrape import scrape_website, split_dom_content, clean_body_content, extrac
 from parse import parse_with_ollama
 import streamlit.components.v1 as components
 import streamlit.components.v1 as components1
-
+st.write('''<style>
+.stSidebar{
+    background:#000;
+}
+.mainmen{
+    color:#fff;
+}
+</style>''', unsafe_allow_html=True)
+with st.sidebar:
+    with st.container():
+        st.html(
+            "<p><img src='https://boko.com.au/wp-content/uploads/2023/01/Boko-digital-logo-V5-2022.svg' width='160'></p><ul class='mainmen'><li>Login</li><li>About</li></ul>")
 
 st.title("My first web scrapper")
 url = st.text_input("Enter website url")
