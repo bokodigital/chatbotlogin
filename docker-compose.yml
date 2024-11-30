@@ -1,12 +1,15 @@
-version: '3'
+version: "3.7"
+
 services:
-  ollama-container:
-    image: ollama/ollama
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "127.0.0.1:11434:11434"
     volumes:
-      -./data/ollama:/root/.ollama
+      - ./models:/var/lib/ollama
+  streamlit:
+    build: .
     ports:
-      - 11434:11434
-  streamlit-app:
-    image: bokoapp/app:0.2
-    ports:
-      - 8501:8501
+      - "8501:8501"
+    depends_on:
+      - ollama
