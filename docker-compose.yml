@@ -1,15 +1,15 @@
-version: "3"
+# version: "3"
 
-services:
-  ollama:
-    image: ollama/ollama:latest
-    ports:
-      - "127.0.0.1:11434:11434"
-    volumes:
-      - ./models:/var/lib/ollama
-  streamlit:
-    build: .
-    ports:
-      - "8501:8501"
-    depends_on:
-      - ollama
+# services:
+#   ollama:
+#     image: ollama/ollama:latest
+#     ports:
+#       - "127.0.0.1:11434:11434"
+#     volumes:
+#       - ./models:/var/lib/ollama
+#   streamlit:
+#     build: .
+#     ports:
+#       - "8501:8501"
+#     depends_on:
+#       - ollama
