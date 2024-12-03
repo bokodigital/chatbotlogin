@@ -18,11 +18,19 @@ st.write('''<style>
 .mainmen{
     color:#fff;
 }
+.foot{
+    position:relative;
+    color:#fff;
+}
+.footmain{
+    position:fixed;
+    bottom:0;
+}
 </style>''', unsafe_allow_html=True)
 with st.sidebar:
     with st.container():
         st.html(
-            "<p><img src='https://boko.com.au/wp-content/uploads/2023/01/Boko-digital-logo-V5-2022.svg' width='160'></p><p>Saved Searches</p><ul class='mainmen'><li>Login</li><li>About</li></ul>")
+            "<p style='text-align:center;'><img src='https://boko.com.au/wp-content/uploads/2024/12/signature-logo-1-1.jpg' width='160'></p><p style='color:#bffc00;font-size:26px;'>Boko's Ai<br/>Lead Assistant</p><p style='color:#fff; font-size:20px;'>Saved Searches</p><ul class='mainmen' style='color:#fff; font-size:16px;list-style:none;'><li><span>Search Result 1</span></li><li><span>Search Result 2</span></li></ul><div class='foot'><div class='footmain'><p>Settings</p><p>Login / Logout</p><p>&copy; 2024 Boko Digital<br/>Boko's AI Lead Assistant</p></div></div>")
 sheet_csv = st.secrets["database_url"]
 res = rs.get(url=sheet_csv)
 open('database.csv', 'wb').write(res.content)
@@ -41,7 +49,7 @@ if 'user_state' not in st.session_state:
 
 if not st.session_state.user_state['logged_in']:
     # Create login form
-    st.write('Please login')
+    st.write('Login')
     mail_adress = st.text_input('E-Mail')
     password = st.text_input('Password', type='password')
     submit = st.button('Login')
