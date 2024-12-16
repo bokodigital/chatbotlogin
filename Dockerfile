@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+RUN curl -fsSL https://ollama.com/install.sh | bash
+
 RUN git clone https://github.com/bokodigital/chatbotlogin.git .
 
 RUN pip3 install -r requirements.txt
