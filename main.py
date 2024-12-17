@@ -3,7 +3,7 @@ from scrape import scrape_website, split_dom_content, clean_body_content, extrac
 from parse import parse_with_ollama
 import streamlit.components.v1 as components
 import streamlit.components.v1 as components1
-
+import httpx
 
 st.title("My first web scrapper")
 url = st.text_input("Enter website url")
